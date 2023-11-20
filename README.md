@@ -3,6 +3,7 @@
 1. Clone repository
 2. Import project to intellij (via pom.xml)
 3. Run MarcinApplication
+4. Create request in e.g. postman with uri: GET localhost:8080/api/v1/reservations/{premiumRooms}/premium-rooms/{economyRooms}/economy-rooms
 
 # Task description
 Build a room occupancy optimization tool for one of our hotel clients! Our customer has a
