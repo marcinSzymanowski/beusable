@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 @Log4j2
 class BidsManager {
-    private static final String JSON_URL = "https://gist.githubusercogggntent.com/fjahr/b164a446db285e393d8e4b36d17f4143/raw/75108c09a72a001a985d27b968a0ac5a867e830b/smarthost_hotel_guests.json";
+    private static final String JSON_URL = "https://gist.githubusercontent.com/fjahr/b164a446db285e393d8e4b36d17f4143/raw/75108c09a72a001a985d27b968a0ac5a867e830b/smarthost_hotel_guests.json";
 
     Either<String, List<Integer>> getBids() {
         try {

@@ -26,7 +26,11 @@ class ReservationServiceImplTest {
         return Stream.of(new TestData(3, 3, 3, 738, 3, 167),
                 new TestData(7, 5, 6, 1054, 4, 189),
                 new TestData(2, 7, 2, 583, 4, 189),
-                new TestData(10, 1, 9, 1221, 1, 22));
+                new TestData(10, 1, 9, 1221, 1, 22),
+                new TestData(0, 0, 0, 0, 0, 0),
+                new TestData(1, 0, 1, 374, 0, 0),
+                new TestData(0, 1, 0, 0, 1, 99)
+        );
     }
 
     @ParameterizedTest
@@ -39,8 +43,8 @@ class ReservationServiceImplTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.premiumUsage.roomsCount").value(testData.expectedPremiumRoomsCount))
                 .andExpect(jsonPath("$.premiumUsage.price").value(testData.expectedPremiumPrice))
-                .andExpect(jsonPath("$.regularUsage.roomsCount").value(testData.expectedEconomyRoomsCount))
-                .andExpect(jsonPath("$.regularUsage.price").value(testData.expectedEconomyPrice));
+                .andExpect(jsonPath("$.economyUsage.roomsCount").value(testData.expectedEconomyRoomsCount))
+                .andExpect(jsonPath("$.economyUsage.price").value(testData.expectedEconomyPrice));
     }
 
     @Test
