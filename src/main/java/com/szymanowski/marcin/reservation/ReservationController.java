@@ -16,6 +16,9 @@ class ReservationController {
 
     @GetMapping("/{premiumRoomsCount}/premium-rooms/{economyRoomsCount}/economy-rooms")
     ResponseEntity<?> get(@PathVariable Integer premiumRoomsCount, @PathVariable Integer economyRoomsCount) {
+        if (premiumRoomsCount < 0 || economyRoomsCount < 0) {
+            return ResponseEntity.badRequest().build();
+        }
         return reservationService.calculate(premiumRoomsCount, economyRoomsCount)
                 .fold(
                         __ -> ResponseEntity.internalServerError().build(),

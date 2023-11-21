@@ -56,6 +56,15 @@ class ReservationServiceImplTest {
                 .andExpect(status().isBadRequest());
     }
 
+    @Test
+    void shouldReturnBadRequestWhenAvailableAreLessThanZero() throws Exception {
+        this.mockMvc.perform(
+                        get("/api/v1/reservations/{premiumAvailable}/premium-rooms/{economyAvailable}/economy-rooms",
+                                -1, 1))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
     private record TestData(int premiumAvailable, int economyAvailable, int expectedPremiumRoomsCount,
                             int expectedPremiumPrice, int expectedEconomyRoomsCount, int expectedEconomyPrice) {
     }
